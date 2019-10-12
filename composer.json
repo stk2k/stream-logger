@@ -1,0 +1,29 @@
+{
+  "name": "stk2k/stream-logger",
+  "description": "PSR logger using php://stream stream",
+  "keywords": ["PHP","Logger","Stream", "PSR-3"],
+  "homepage": "https://github.com/stk2k/stream-logger",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Katsuki Shuto",
+      "email": "stk2k@sazysoft.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "ext-json": "*",
+    "psr/log": "^1.0",
+    "calgamo/util": "~0.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.3.0",
+    "php-coveralls/php-coveralls": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Stk2k\\StreamLogger\\": "src/"
+    }
+  }
+}
