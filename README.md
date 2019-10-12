@@ -130,6 +130,29 @@ $logger->filterByLevelBetween(LogLevel::WARNING, LogLevel::ERROR)->flush();
 // 2019-10-12 10:46:29 [error] error []      @.../example6.php(11)
 ```
 
+### Filtering by callback
+
+```php
+use Psr\Log\LogLevel;
+use Stk2k\StreamLogger\BufferedOutputLogger;
+use Stk2k\StreamLogger\LogMessage;
+
+$logger = new BufferedOutputLogger();
+
+$logger->debug('debug');
+$logger->warning('warning');
+$logger->error('error');
+$logger->notice('notice');
+$logger->info('info');
+$logger->critical('critical');
+
+$logger->filter(function(LogMessage $m){
+    return $m->getLevel() === LogLevel::INFO || $m->getLevel() === LogLevel::WARNING;
+})->flush();
+// 2019-10-12 14:09:04 [warning] warning []      @.../example11.php(11)
+// 2019-10-12 14:09:04 [info] info []      @.../example11.php(14)
+```
+
 
 ## Requirement
 
